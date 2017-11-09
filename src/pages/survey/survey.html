@@ -1,0 +1,180 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>survey</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- logo  -->
+  <div text-center>
+    <img src="{{selectedLogo}}" alt="logo" width=90>
+  </div>
+
+  <!-- organization -->
+  <div style="background-color: #7f7f7f; color: white;" text-center padding>
+    <h1 (click)="click = !click" style="font-family: Kh Mith Sala Pali;">
+      <strong>{{selectedOrganization}}</strong>
+    </h1>
+    <div *ngIf="click">
+      <hr>
+      <p>ច្រកទ្វារ > {{selectedOrganization}}</p>
+    </div>
+  </div>
+
+  <p>
+    សូមអរគុណសម្រាប់ការចំណាយពេល។ ចម្លើយរបស់អ្នកពិតជាមានសារៈសំខាន់ណាស់សម្រាប់ការកែលម្អការងារផ្តល់សេវារបស់
+    <strong>{{selectedOrganization}}</strong>។ សូមជ្រើសរើសវាយតម្លៃការផ្តល់សេវាទៅតាមចំណុចសំខាន់ៗដូចខាងក្រោមដោយ លេខ១ (អន់) ទៅលេខ៤ (ល្អបំផុត)។
+  </p>
+
+  <div>
+
+    <!-- question1 -->
+    <ion-item no-lines style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq1 = !showq1">
+      <strong>1. Check in counter</strong>
+    </ion-item>
+    <div *ngIf="showq1" no-padding>
+      <ion-item no-lines *ngFor="let q1 of question1_kh">
+        <p>{{q1}}</p>
+        <ion-row radio-group>
+          <ion-col  *ngFor="let ans of answer_choice">
+            <!-- <ion-radio value="{{ans.text}}"></ion-radio> -->
+            <img src="{{ans.emoji}}" alt="{{ans.text}}" width=20>
+            <p>{{ans.text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <!-- <ion-row radio-group>
+      <ion-col *ngFor="let ans of answer_choice">
+        <ion-item>
+          <ion-label style="font-size: 12px">{{ans.text}}</ion-label>
+          <ion-radio value="{{ans.text}}"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+    <!-- question2 -->
+    <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq2 = !showq2" margin-vertical>
+      <strong>2. Immigration Checkpoint</strong>
+    </ion-item>
+    <div *ngIf="showq2">
+      <ion-item no-lines *ngFor="let q2 of question2_kh">
+        <p>{{q2}}</p>
+        <ion-row radio-group>
+          <ion-col *ngFor="let ans of answer_choice">
+            <!-- <ion-radio value="{{ans.text}}"></ion-radio> -->
+            <img src="{{ans.emoji}}" alt="{{ans.text}}" width=20>
+            <p>{{ans.text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <!-- question3 -->
+    <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq3 = !showq3" margin-vertical>
+      <strong>3. Baggage and body (X-Ray) Checkpoint</strong>
+    </ion-item>
+    <div *ngIf="showq3">
+      <ion-item no-lines *ngFor="let q3 of question3_kh">
+        <p>{{q3}}</p>
+        <ion-row radio-group>
+          <ion-col *ngFor="let ans of answer_choice">
+            <!-- <ion-radio value="{{ans.text}}"></ion-radio> -->
+            <img src="{{ans.emoji}}" alt="{{ans.text}}" width=20>
+            <p>{{ans.text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <!-- question4 -->
+    <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq4 = !showq4" margin-vertical>
+      <strong>4. Custom Checkpoint</strong>
+    </ion-item>
+    <div *ngIf="showq4">
+      <ion-item no-lines *ngFor="let q4 of question4_kh">
+        <p>{{q4}}</p>
+        <ion-row radio-group>
+          <ion-col *ngFor="let ans of answer_choice">
+            <!-- <ion-radio value="{{ans.text}}"></ion-radio> -->
+            <img src="{{ans.emoji}}" alt="{{ans.text}}" width=20>
+            <p>{{ans.text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <!-- question5 -->
+    <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq5 = !showq5" margin-vertical>
+      <strong>5. Qurantine Checkpoint</strong>
+    </ion-item>
+    <div *ngIf="showq5">
+      <ion-item no-lines *ngFor="let q5 of question5_kh">
+        <p>{{q5}}</p>
+        <ion-row radio-group>
+          <ion-col *ngFor="let ans of answer_choice">
+            <!-- <ion-radio value="{{ans.text}}"></ion-radio> -->
+            <img src="{{ans.emoji}}" alt="{{ans.text}}" width=20>
+            <p>{{ans.text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <!-- question6 -->
+    <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" (click)="showq6 = !showq6" margin-vertical>
+      <strong>6. Your informatin (regardless of score)</strong>
+    </ion-item>
+    <div *ngIf="showq6">
+      <ion-item no-lines *ngFor="let q6 of question6_kh">
+        <p>{{q6}}</p>
+        <!-- <ion-label>Gender</ion-label> -->
+        <ion-item>   
+          <ion-select>
+            <ion-option value="f">Female</ion-option>
+            <ion-option value="m">Male</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-item>
+    </div>
+
+    <button type="submit" ion-button style="background-color:#997F4B">
+      <ion-icon name="paper-plane" padding-right></ion-icon>Submit
+    </button>
+
+  </div>
+
+  <hr>
+  <div text-center>
+    <!-- prepared by -->
+    <h3 style="font-family: Khmer Wat Phnom;"><strong>រៀបចំដោយ​</strong></h3>
+    <div margin-horizontal>
+      <img src="../../assets/imgs/cbh/mot_logo.png" alt="logo mot" width=100 height=90>
+      <img src="../../assets/imgs/cbh/clean_city_logo.png" alt="logo clean city" width=85 height=90>
+      <img src="../../assets/imgs/cbh/uyfc_logo.png" alt="logo uyfc" width=90 height=90>
+    </div>
+
+    <!-- qr code -->
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/imgs/cbh/cambodiabesthospitality_org.jpg" alt="qr code" width=180 height=180>
+      </ion-col>
+    </ion-row>
+
+    <!-- contact -->
+    <h3 style="font-family: Khmer Wat Phnom;"><strong>ទំនាក់ទំនង</strong></h3>
+    <p>ដីឡូត៍៣A ផ្លូវលេខ១៦៩ សង្កាត់វាលវង់ ខណ្ឌ៧មករា រាជធានីភ្នំពេញ ព្រះរាជាណាចក្រកម្ពុជា</p>
+    <button ion-button clear>info@cambodiabesthospitality.org</button>
+
+    <!-- bottom -->
+    <div style="background-color: #997F4B; color: white;" text-center padding>
+      <p text-uppercase>©2017 CAMBODIA BEST HOSPITALITY, ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+
+</ion-content>

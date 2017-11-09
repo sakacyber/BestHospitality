@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{selectedLogo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-uppercase padding-vertical>
+    <h2>
+      <strong>ជ្រើសរើសស្ថាប័នបេក្ខភាពច្រកទ្វារអន្តរជាតិ</strong>
+    </h2>
+  </div>
+  <hr>
+
+  <div text-center>
+    <ion-card *ngFor="let item of items" (click)="itemTapped(item.name)" style="width: 140px; display: inline-block; vertical-align: top" padding-horizontal>
+      <img src="{{item.qr}}" />
+      <ion-card-content>
+        <p style="color: #997F4B" no-padding>
+          {{item.name}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- <img *ngFor="let item of items" src="{{item.icon}}" alt="{{item.name}}" width=160 padding> -->
+  </div>
+
+
+</ion-content>
