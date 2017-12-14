@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { ChooseLangPage } from '../choose-lang/choose-lang';
 
@@ -18,8 +19,7 @@ export class SearchOrgPage {
     qr: string
   }>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.selectedLogo = navParams.get('logo');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.orgName_kh = [
       "អាកាសយានដ្ឋានអន្តរជាតិភ្នំពេញ",
       "អាកាសយានដ្ឋានអន្តរជាតិសៀមរាប",
@@ -30,7 +30,8 @@ export class SearchOrgPage {
       "កំពង់ផែអន្តរជាតិភ្នំពេញ",
       "ព្រំដែនប្រទេសកម្ពុជា-វៀតណាម",
       "ព្រំដែនប្រទេសកម្ពុជា-ថៃ",
-      "ព្រំដែនប្រទេសកម្ពុជា-ឡាវ" ];
+      "ព្រំដែនប្រទេសកម្ពុជា-ឡាវ"
+    ];
     this.orgName_en = [
       "PHNOM PENH INTERNATIONAL AIRPORT",
       "SIEM REAP INTERNATIONAL AIRPORT",
@@ -40,26 +41,28 @@ export class SearchOrgPage {
       "PHNOM PENH INTERNATIONAL PORT",
       "CAMBODIA-VIETNAM BORDER",
       "CAMBODIA-THAI BORDER",
-      "CAMBODIA-LAOS BORDER" ];
+      "CAMBODIA-LAOS BORDER"
+    ];
 
     this.items = [];
     for (let i = 0; i < 10; i++){
       this.items.push({
         name: this.orgName_kh[i],
-        qr: "../../assets/imgs/cbh/qr_code.png"
+        qr: "../../assets/imgs/qr_code.png"
       });
     }  
-
+    
+    this.selectedLogo = navParams.get('logo');
+    this.storage.set("selectedLogo", this.selectedLogo);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchOrgPage');
-    console.log(this.selectedLogo);
+    // console.log(this.selectedLogo);
   }
 
   itemTapped(selectedOrganization) {
     this.navCtrl.push(ChooseLangPage, {
-      logo: this.selectedLogo,
       organization: selectedOrganization
     });
   }

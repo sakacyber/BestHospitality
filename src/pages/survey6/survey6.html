@@ -1,0 +1,108 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>{{question6_title}}</ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- logo  -->
+  <div text-center>
+    <img src="{{selectedLogo}}" alt="logo" width=90>
+  </div>
+
+  <!-- organization -->
+  <div text-center padding>
+    <h1 style="font-family: Kh Mith Sala Pali;">
+      <strong>{{selectedOrganization}}</strong>
+    </h1>
+  </div>
+
+  <!-- question6 -->
+  <ion-item style="color: #008000; background-color: #f4f4f4; border-bottom: 2px solid grey;" margin-vertical>
+    <strong>{{question6_title}}</strong>
+  </ion-item>
+
+  <!-- gender -->
+  <ion-item no-lines>
+    <p>{{question6[0]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt1">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let opt of option1" value="{{opt}}">{{opt}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- age -->
+  <ion-item no-lines>
+    <p>{{question6[1]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt2">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let ans of option2" value="{{ans}}">{{ans}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- country -->
+  <ion-item no-lines>
+    <p>{{question6[2]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt3">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let ans of option3" value="{{ans}}">{{ans}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- province -->
+  <ion-item no-lines>
+    <p>{{question6[3]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt4">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let ans of option4" value="{{ans}}">{{ans}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- study -->
+  <ion-item no-lines>
+    <p>{{question6[4]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt5">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let ans of option5" value="{{ans}}">{{ans}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- job -->
+  <ion-item no-lines>
+    <p>{{question6[5]}}</p>
+    <ion-item>
+      <ion-select [(ngModel)]="user_ans.opt6">
+        <ion-option selected disabled>--ជ្រើសរើស--</ion-option>
+        <ion-option *ngFor="let ans of option6" value="{{ans}}">{{ans}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <!-- your comment -->
+  <ion-item no-lines>
+    <p>{{question6[6]}}</p>
+    <ion-item>
+      <ion-textarea placeholder="សរសេរមតិនៅទីនេះ..." [(ngModel)]="user_ans.opt7">
+      </ion-textarea>
+    </ion-item>
+  </ion-item>
+
+  <button ion-button style="background-color:#997F4B" (click)="nextPage()" end>
+    <ion-icon name="paper-plane" padding-right></ion-icon>វាយតម្លៃ (Submit)
+  </button>
+
+</ion-content>

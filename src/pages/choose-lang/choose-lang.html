@@ -15,7 +15,7 @@
   </div>
   
   <!-- organization -->
-  <div text-center style="background-color: gray; color: white;" padding>
+  <div text-center padding>
     <h1 (click)="click = !click" style="font-family: Kh Mith Sala Pali;">
       <strong>{{selectedOrganization}}</strong>
     </h1>
@@ -27,6 +27,7 @@
     </div>
   </div>
 
+  
   <div text-center>
     <p text-uppercase>please select language</p>
     <ion-card *ngFor="let lang of language" (click)="itemTapped(lang.name)" style="width: 90px; display: inline-block;" padding>
